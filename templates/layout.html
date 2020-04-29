@@ -1,4 +1,3 @@
-{{define "header"}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,10 +36,16 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li ><a href="/">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="/write">New Post</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
 </div>
-{{end}}
+
+{{ yield }}
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/assets/js/bootstrap.min.js"></script>
+</body>
+</html>
