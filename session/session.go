@@ -8,9 +8,10 @@ import (
 )
 
 type Session struct {
-	id       string
-	Username string
-	Password string
+	id           string
+	Username     string
+	Password     string
+	IsAuthorized bool
 }
 
 type SessionStore struct {

@@ -16,6 +16,13 @@ func PostLoginHandler(rnd render.Render, r *http.Request, s *session.Session) {
 
 	s.Username = username
 	s.Password = password
+	s.IsAuthorized = true
+	rnd.Redirect("/")
+}
+func LogoutHandler(rnd render.Render, r *http.Request, s *session.Session) {
 
+	s.Username = ""
+	s.Password = ""
+	s.IsAuthorized = false
 	rnd.Redirect("/")
 }

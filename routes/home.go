@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"fmt"
 	"github.com/martini-contrib/render"
 	"go-blog/db/documents"
 	"go-blog/models"
@@ -17,5 +18,10 @@ func IndexHandler(rnd render.Render, s *session.Session, db *mgo.Database) {
 		post := models.Post{doc.Id, doc.Title, doc.ContentHtml, doc.ContentMarkdown}
 		posts = append(posts, post)
 	}
-	rnd.HTML(200, "index", posts)
+
+	model := models.PostsListModel{}
+	model.IsAutorized = s.IsAuthorized
+	model.Posts = posts
+	fmt.Println(model)
+	rnd.HTML(200, "index", model)
 }
