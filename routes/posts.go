@@ -16,15 +16,15 @@ func WriteHandler(rnd render.Render, s *session.Session) {
 		rnd.Redirect("/")
 	}
 	model := models.EditPostModel{}
-	model.IsAutorized = s.IsAuthorized
+	model.IsAuthorized = s.IsAuthorized
 	model.Post = models.Post{}
 	rnd.HTML(200, "write", model)
 }
 
 func EditHandler(rnd render.Render, params martini.Params, db *mgo.Database, s *session.Session) {
-	if !s.IsAuthorized {
-		rnd.Redirect("/")
-	}
+	//if !s.IsAuthorized {
+	//	rnd.Redirect("/")
+	//}
 	postsCollection := db.C("Posts")
 	id := params["id"]
 	postDocument := documents.PostDocument{}
@@ -35,7 +35,7 @@ func EditHandler(rnd render.Render, params martini.Params, db *mgo.Database, s *
 	}
 	post := models.Post{postDocument.Id, postDocument.Title, postDocument.ContentHtml, postDocument.ContentMarkdown}
 	model := models.EditPostModel{}
-	model.IsAutorized = s.IsAuthorized
+	model.IsAuthorized = s.IsAuthorized
 	model.Post = post
 	rnd.HTML(200, "write", model)
 }
@@ -51,7 +51,7 @@ func ViewHandler(rnd render.Render, params martini.Params, db *mgo.Database, s *
 	}
 	post := models.Post{postDocument.Id, postDocument.Title, postDocument.ContentHtml, postDocument.ContentMarkdown}
 	model := models.EditPostModel{}
-	model.IsAutorized = s.IsAuthorized
+	model.IsAuthorized = s.IsAuthorized
 	model.Post = post
 	rnd.HTML(200, "view", model)
 }

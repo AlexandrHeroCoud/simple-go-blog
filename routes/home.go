@@ -20,7 +20,7 @@ func IndexHandler(rnd render.Render, s *session.Session, db *mgo.Database) {
 	}
 
 	model := models.PostsListModel{}
-	model.IsAutorized = s.IsAuthorized
+	model.IsAuthorized = s.IsAuthorized
 	model.Posts = posts
 	fmt.Println(model)
 	rnd.HTML(200, "index", model)

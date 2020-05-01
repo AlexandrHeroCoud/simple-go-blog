@@ -12,6 +12,10 @@
         </div>
     </div>
     <div class="col-xs-2">
-
+        {{if .IsAuthorized}}
+            <div class="btn-group">
+                <a class="btn-success" href="/edit/{{.Post.Id}}">Edit</a>
+            </div>
+        {{end}}
     </div>
 </div>

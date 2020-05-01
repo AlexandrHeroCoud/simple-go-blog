@@ -3,7 +3,7 @@
         <div class="col-xs-2">
         </div>
         <div class="col-xs-8">
-            {{if $.IsAutorized}}
+            {{if $.IsAuthorized}}
                 <h1><a href="/edit/{{$post.Id}}">{{$post.Title}}</a></h1>
             {{else}}
                 <h1><a href="/view/{{$post.Id}}">{{$post.Title}}</a></h1>

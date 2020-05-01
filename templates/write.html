@@ -18,7 +18,7 @@
 		</form>
 	</div>
 	<div class="col-xs-2">
-		{{if .Post.Id}}
+		{{if .IsAuthorized}}
 			<div class="btn-group">
 			<a class="btn-danger" href="/delete/{{.Post.Id}}">Delete</a>
 				<a class="btn-info" href="/view/{{.Post.Id}}">View</a>
